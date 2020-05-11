@@ -1,7 +1,7 @@
 # Проект 4: Место
 
 Учебная страница html Яндекс Практикум, на ее примере учимся верстать старницы для разных устройств.
-Ссылка на проект https://increment13.github.io/russian-travel/index.html
+Ссылка на проект https://increment13.github.io/mesto/index.html
 ## Использование технологии
 
 * HTML
