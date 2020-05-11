@@ -1,0 +1,25 @@
+.popup__button{
+width: 358px;
+height: 50px;
+background: #000000;
+border: 1px solid black;
+border-radius: 2px;
+margin-left: 36px;
+margin-right: 36px;
+color: white;
+font-size: 18px;
+line-height: 22px;
+margin-bottom: 10px;
+}
+
+
+.popup__button:hover{
+    border: 1px solid gray;
+    color: gray;
+}
+
+
+.popup__button:active{
+    border: 1px solid gray;
+    color: gray;
+}
