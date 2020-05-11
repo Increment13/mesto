@@ -26,7 +26,8 @@ function closePopup() {
     form.classList.remove('popup_opened');
 }
 
-function formSubmitHandler () {
+function formSubmitHandler (evt) {
+    evt.preventDefault();
 
     let nameInput = formElement.querySelector('.popup__inputName');
     let jobInput = formElement.querySelector('.popup__inputJob');
