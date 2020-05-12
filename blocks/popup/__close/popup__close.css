@@ -1,14 +1,22 @@
-.popup__close{
-    position: absolute;
-    top: -45px;
-    right: -45px;
+.popup__close {
+    width: 50px;
+    height: 50px;
+    background-image: url(../../../images/close.svg);
+    margin-top: 135px;
+    transition: opacity 0.5s ease-in-out;
 }
 
-
-.popup__close:hover{
+.popup__close:hover,
+.popup__close:active {
     opacity: 0.6;
+    cursor: pointer
 }
 
-.popup__close:active{
-    opacity: 0.6;
+@media screen and (max-width: 550px) {
+    .popup__close {
+        width: 30px;
+        height: 30px;
+        margin-top: 150px;
+        background-image: url(../../../images/closem.svg);
+    }
 }

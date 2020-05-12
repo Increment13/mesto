@@ -1,88 +1,91 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <title>mesto</title>
 </head>
+
 <body class="body">
-  <div class="page">   
-    <header class="header">
-        <img calss="header__logo" src="images/logo.svg" alt="логотип сайта">
-        <div class="header__line"></div>
-    </header>
-    <main class="content">
-        <section class="profile">
-            <div class="profile__editPlace">
+    <div class="page">
+        <header class="header">
+            <img class="header__logo" src="images/logo.svg" alt="логотип сайта">
+        </header>
+        <main class="content">
+            <section class="profile">
+                <div class="profile__editPlace">
                     <img src="images/photo.jpg" alt="фото аватара" class="profile__avatar">
-                <div class="profile__info">
-                    <div calss="profile__editInfo"><span class="profile__name">Жак-Ив Кусто</span><button class="profile__editButton"></button></div>
-                    <span class="profile__profession">Исследователь океана</span>   
+                    <div class="profile__info">
+                        <div class="profile__editInfo">
+                            <p class="profile__name">Жак-Ив Кусто</p><button class="profile__editButton"></button></div>
+                        <p class="profile__profession">Исследователь океана</p>
+                    </div>
                 </div>
-            </div>
-            <button class="profile__addButton">+</button>
-        </section>
-        <section class="elements">
-            <div class="elements__element">
-                <img src="images/tih.jpg" alt="" class="elements__image">
-                <div class="elements__group">
-                    <p class="elements__title">Тихий океан</p>
-                    <img src="images/heart.svg" alt="" class="elements__heart">
-                </div>
-            </div>
-            <div class="elements__element">
-                <img src="images/atlantic.jpg" alt="" class="elements__image">
-                <div class="elements__group">
-                    <p class="elements__title">Атлантический океан</p>
-                    <img src="images/heart.svg" alt="" class="elements__heart">
-                </div>
-            </div>
-            <div class="elements__element">
-                <img src="images/indian.jpg" alt="" class="elements__image">
-                <div class="elements__group">
-                    <p class="elements__title">Индийский океан</p>
-                    <img src="images/heart.svg" alt="" class="elements__heart">
-                </div>
-            </div>
-            <div class="elements__element">
-                <img src="images/sever.jpg" alt="" class="elements__image">
-                <div class="elements__group">
-                    <p class="elements__title">Северно ледовитый океан</p>
-                    <img src="images/heart.svg" alt="" class="elements__heart">
-                </div>
-            </div>
-            <div class="elements__element">
-                <img src="images/alys.jpg" alt="" class="elements__image">
-                <div class="elements__group">
-                    <p class="elements__title">Аляскинский залив</p>
-                    <img src="images/heart.svg" alt="" class="elements__heart">
-                </div>
-            </div>
-            <div class="elements__element">
-                <img src="images/yjn.jpg" alt="" class="elements__image">
-                <div class="elements__group">
-                    <p class="elements__title">Южный океан</p>
-                    <img src="images/heart.svg" alt="" class="elements__heart">
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer class="footer">
-        <p class="footer__copyright">&copy; 2020 Таланов Александр</p>
-    </footer>
-  
+                <button class="profile__addButton" type="submit"></button>
+            </section>
+            <section class="elements">
+                <article class="elements__element">
+                    <img src="images/tih.jpg" alt="фото Тихий океан" class="elements__image">
+                    <div class="elements__group">
+                        <p class="elements__title">Тихий океан</p>
+                        <div class="elements__heartImage"></div>
+                    </div>
+                </article>
+                <article class="elements__element">
+                    <img src="images/atlantic.jpg" alt="фото Атлантический океан" class="elements__image">
+                    <div class="elements__group">
+                        <p class="elements__title">Атлантический океан</p>
+                        <div class="elements__heartImage"></div>
+                    </div>
+                </article>
+                <article class="elements__element">
+                    <img src="images/indian.jpg" alt="фото Индийский океан" class="elements__image">
+                    <div class="elements__group">
+                        <p class="elements__title">Индийский океан</p>
+                        <div class="elements__heartImage"></div>
+                    </div>
+                </article>
+                <article class="elements__element">
+                    <img src="images/sever.jpg" alt="фото Северно ледовитый океан" class="elements__image">
+                    <div class="elements__group">
+                        <p class="elements__title">Северно ледовитый океан</p>
+                        <div class="elements__heartImage"></div>
+                    </div>
+                </article>
+                <article class="elements__element">
+                    <img src="images/alys.jpg" alt="фото Аляскинский залив" class="elements__image">
+                    <div class="elements__group">
+                        <p class="elements__title">Аляскинский залив</p>
+                        <div class="elements__heartImage"></div>
+                    </div>
+                </article>
+                <article class="elements__element">
+                    <img src="images/yjn.jpg" alt="фото " class="elements__image">
+                    <div class="elements__group">
+                        <p class="elements__title">Южный океан</p>
+                        <div class="elements__heartImage"></div>
+                    </div>
+                </article>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2020 Таланов Александр</p>
+        </footer>
+
         <div class="popup">
             <form class="popup__container">
-                    <h2 class="popup__header">Редактировать профиль</h2>
-                    <input type="text" class="popup__inputName">
-                    <input type="text" class="popup__inputJob">
-                    <input type="submit" class="popup__button"  value="Сохранить">
-                    <img src="images/Close.png" alt="" class="popup__close">
+                <h2 class="popup__header">Редактировать профиль</h2>
+                <input id="inpName" type="text" class="popup__input">
+                <input id="inpJob" type="text" class="popup__input">
+                <button type="submit" class="popup__button">Сохранить</button>
+
             </form>
-            <div class="popup__cover"></div>
+            <div class="popup__close"></div>
         </div>
     </div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

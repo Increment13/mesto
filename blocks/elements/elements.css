@@ -2,8 +2,8 @@
 @import url(./__image/elements__image.css);
 @import url(./__group/elements__group.css);
 @import url(./__title/elements__title.css);
-
-.elements{
+@import url(./__heartImage/elements__heartImage.css);
+.elements {
     max-width: 882px;
     min-width: 320px;
     margin-left: auto;
@@ -14,15 +14,12 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-
 }
 
-
-
 @media screen and (max-width: 1024px) {
-    .elements{
+    .elements {
         justify-content: center;
         margin-right: auto;
         margin-left: auto;
-          }
+    }
 }

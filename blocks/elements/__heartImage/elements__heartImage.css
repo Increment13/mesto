@@ -1,0 +1,12 @@
+.elements__heartImage {
+    background-image: url(../../../images/heart.svg);
+    background-repeat: no-repeat;
+    width: 21px;
+    height: 19px;
+    transition: transform 0.3s ease-out;
+}
+
+.elements__heartImage:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}

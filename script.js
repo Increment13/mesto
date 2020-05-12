@@ -1,4 +1,3 @@
-
 const formElement = document.querySelector('.page');
 
 const editButton = formElement.querySelector('.profile__editButton');
@@ -7,38 +6,27 @@ const closeButton = formElement.querySelector('.popup__close');
 const form = formElement.querySelector('.popup');
 const formCont = formElement.querySelector('.popup__container');
 
-let nameInput = formElement.querySelector('.popup__input');
-let jobInput = formElement.querySelector('.popup__container');
+const nameTitle = formElement.querySelector('.profile__name');
+const jobTitle = formElement.querySelector('.profile__profession');
 
+const nameInput = formElement.querySelector('#inpName');
+const jobInput = formElement.querySelector('#inpJob');
 
 
 function openPopup() {
-    form.classList.add('popup_opened');
-
-    let nameTitle = formElement.querySelector('.profile__name');
-    let jobTitle = formElement.querySelector('.profile__profession');
-
-    let nameInput = formElement.querySelector('.popup__inputName');
-    let jobInput = formElement.querySelector('.popup__inputJob');
-
+    /* form.classList.add('popup_opened');*/
+    form.setAttribute("style", "display: flex;");
     nameInput.value = nameTitle.textContent;
     jobInput.value = jobTitle.textContent;
 }
 
 function closePopup() {
-    form.classList.remove('popup_opened');
+    form.setAttribute("style", "display: none;");
+    /*form.classList.remove('popup_opened');*/
 }
-
 
 function formSubmitHandler(evt) {
     evt.preventDefault();
-
-    let nameInput = formCont.querySelector('.popup__inputName');
-    let jobInput = formCont.querySelector('.popup__inputJob');
-
-    let nameTitle = formElement.querySelector('.profile__name');
-    let jobTitle = formElement.querySelector('.profile__profession');
-
     nameTitle.textContent = nameInput.value;
     jobTitle.textContent = jobInput.value;
     closePopup();
@@ -47,4 +35,4 @@ function formSubmitHandler(evt) {
 
 editButton.addEventListener('click', openPopup);
 closeButton.addEventListener('click', closePopup);
-formCont.addEventListener('submit',formSubmitHandler);
+formCont.addEventListener('submit', formSubmitHandler);

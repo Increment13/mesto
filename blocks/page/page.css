@@ -11,3 +11,12 @@
         margin-right: 6%;
           }
 }
+
+
+@media screen and (max-width: 320px) {
+    .page{
+        margin-left: 0;
+        margin-right: 0;
+          }
+}
+
