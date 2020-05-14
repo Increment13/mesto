@@ -14,15 +14,17 @@ const jobInput = formElement.querySelector('#inpJob');
 
 
 function openPopup() {
-    /* form.classList.add('popup_opened');*/
-    form.setAttribute("style", "display: flex;");
+    form.classList.add('popup_opened');
+    form.classList.remove('popup_closed');
+    /*form.setAttribute("style", "display: flex;");*/
     nameInput.value = nameTitle.textContent;
     jobInput.value = jobTitle.textContent;
 }
 
 function closePopup() {
-    form.setAttribute("style", "display: none;");
-    /*form.classList.remove('popup_opened');*/
+    /*form.setAttribute("style", "display: none;");*/
+    form.classList.remove('popup_opened');
+    form.classList.add('popup_closed');
 }
 
 function formSubmitHandler(evt) {

@@ -2,8 +2,10 @@
     width: 50px;
     height: 50px;
     background-image: url(../../../images/close.svg);
+    background-color: black;
     margin-top: 135px;
     transition: opacity 0.5s ease-in-out;
+    border: 0;
 }
 
 .popup__close:hover,

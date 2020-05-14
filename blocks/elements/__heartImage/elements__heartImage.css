@@ -1,12 +1,24 @@
 .elements__heartImage {
     background-image: url(../../../images/heart.svg);
+    background-color: white;
     background-repeat: no-repeat;
     width: 21px;
     height: 19px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
     transition: transform 0.3s ease-out;
 }
 
 .elements__heartImage:hover {
     cursor: pointer;
     transform: scale(1.2);
+    outline: none !important;
+    cursor: pointer;
+}
+
+.elements__heartImage:active,
+.elements__heartImage:focus {
+    outline: none !important;
+    cursor: pointer;
 }

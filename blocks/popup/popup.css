@@ -4,10 +4,11 @@
 @import url(./__button/popup__button.css);
 @import url(./__close/popup__close.css);
 @import url(./__container/popup__container.css);
+@import url(./_closed/popup_closed.css);
+@import url(./_opened/popup_opened.css);
 .popup {
-    display: none;
     background-color: rgba(0, 0, 0, 0.5);
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

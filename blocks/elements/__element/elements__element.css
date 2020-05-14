@@ -1,4 +1,4 @@
-.elements__element{
+.elements__element {
     width: 282px;
     height: 361px;
     margin-bottom: 20px;
@@ -6,18 +6,16 @@
     background-color: white;
 }
 
-
 @media screen and (max-width: 1024px) {
-    .elements__element{
+    .elements__element {
         margin-right: 18px;
         margin-left: 18px;
-          }
+    }
 }
 
-
 @media screen and (max-width: 320px) {
-    .elements__element{
+    .elements__element {
         margin-right: 0;
         margin-left: 0;
-          }
+    }
 }
