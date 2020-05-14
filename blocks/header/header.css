@@ -14,7 +14,7 @@
     border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 340px) {
     .header {
         margin-top: 27px;
         height: 56px;

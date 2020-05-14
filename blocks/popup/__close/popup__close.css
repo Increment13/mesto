@@ -2,7 +2,7 @@
     width: 50px;
     height: 50px;
     background-image: url(../../../images/close.svg);
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
     margin-top: 135px;
     transition: opacity 0.5s ease-in-out;
     border: 0;

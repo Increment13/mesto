@@ -10,10 +10,11 @@
     .elements__element {
         margin-right: 18px;
         margin-left: 18px;
+        max-width: 282px;
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 340px) {
     .elements__element {
         margin-right: 0;
         margin-left: 0;
