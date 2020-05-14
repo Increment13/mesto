@@ -8,12 +8,13 @@
     justify-content: space-around;
     align-items: start;
     margin-top: 170px;
-    margin-left: 25px;
+    margin-left: 50px;
 }
 
 @media screen and (max-width: 550px) {
     .popup__container {
-        width: 300px;
+        width: 275px;
         height: 330px;
+        margin-left: 30px;
     }
 }
