@@ -26,65 +26,43 @@
                 <button class="profile__addButton" type="button"></button>
             </section>
             <section class="elements">
-                <article class="elements__element">
-                    <img src="images/tih.jpg" alt="фото Тихий океан" class="elements__image">
-                    <div class="elements__group">
-                        <p class="elements__title">Тихий океан</p>
-                        <button class="elements__heartImage" type="button"></button>
-                    </div>
-                </article>
-                <article class="elements__element">
-                    <img src="images/atlantic.jpg" alt="фото Атлантический океан" class="elements__image">
-                    <div class="elements__group">
-                        <p class="elements__title">Атлантический океан</p>
-                        <button class="elements__heartImage" type="button"></button>
-                    </div>
-                </article>
-                <article class="elements__element">
-                    <img src="images/indian.jpg" alt="фото Индийский океан" class="elements__image">
-                    <div class="elements__group">
-                        <p class="elements__title">Индийский океан</p>
-                        <button class="elements__heartImage" type="button"></button>
-                    </div>
-                </article>
-                <article class="elements__element">
-                    <img src="images/sever.jpg" alt="фото Северно ледовитый океан" class="elements__image">
-                    <div class="elements__group">
-                        <p class="elements__title">Северно ледовитый океан</p>
-                        <button class="elements__heartImage" type="button"></button>
-                    </div>
-                </article>
-                <article class="elements__element">
-                    <img src="images/alys.jpg" alt="фото Аляскинский залив" class="elements__image">
-                    <div class="elements__group">
-                        <p class="elements__title">Аляскинский залив</p>
-                        <button class="elements__heartImage" type="button"></button>
-                    </div>
-                </article>
-                <article class="elements__element">
-                    <img src="images/yjn.jpg" alt="фото " class="elements__image">
-                    <div class="elements__group">
-                        <p class="elements__title">Южный океан</p>
-                        <button class="elements__heartImage" type="button"></button>
-                    </div>
-                </article>
             </section>
         </main>
         <footer class="footer">
             <p class="footer__copyright">&copy; 2020 Таланов Александр</p>
         </footer>
 
-        <div class="popup popup_closed">
+
+        <div id="popfrm" class="popup popup_closed">
             <form class="popup__container">
                 <h2 class="popup__header">Редактировать профиль</h2>
-                <input id="inpName" type="text" class="popup__input">
-                <input id="inpJob" type="text" class="popup__input">
+                <input id="inpFr" type="text" class="popup__input">
+                <input id="inpSc" type="text" class="popup__input">
                 <button type="submit" class="popup__button">Сохранить</button>
 
             </form>
             <button class="popup__close" type="button"></button>
         </div>
+        <div id="popimg" class="popup popup_closed">
+            <div class="popup__container-image">
+                <img src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="" class="popup__image">
+                <p class="popup__sign"></p>
+            </div>
+            <button class="popup__close" type="button"></button>
+        </div>
     </div>
+    <template id="element-template">
+        <article class="elements__element">
+            <div class="elements__imageContainer">
+                <img src="" alt="" class="elements__image">
+                <button class="elements__trash" type="button"></button>
+            </div>
+            <div class="elements__group">
+                <p class="elements__title"></p>
+                <button class="elements__heartImage" type="button"></button>
+            </div>
+        </article>
+    </template>
     <script src="script.js"></script>
 </body>
 

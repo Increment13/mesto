@@ -6,8 +6,12 @@
 @import url(./__container/popup__container.css);
 @import url(./_closed/popup_closed.css);
 @import url(./_opened/popup_opened.css);
+@import url(./_opened-image/popup_opened.css);
+@import url(./__container-image/popup__container-image.css);
+@import url(./__image/popup__image.css);
+@import url(./__sign/popup__sign.css);
+@import url(./_hide/popup_hide.css);
 .popup {
-    background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     left: 0;
@@ -16,4 +20,5 @@
     align-items: start;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 }

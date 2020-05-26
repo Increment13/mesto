@@ -3,6 +3,9 @@
 @import url(./__group/elements__group.css);
 @import url(./__title/elements__title.css);
 @import url(./__heartImage/elements__heartImage.css);
+@import url(./_active/elements_heartimage_active.css);
+@import url(./__imageContainer/elements__imageContainer.css);
+@import url(./__trash/elements__trash.css);
 .elements {
     max-width: 882px;
     min-width: 300px;
@@ -12,7 +15,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
