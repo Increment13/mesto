@@ -29,6 +29,7 @@ const closArray = Array.from(clos);
 const cardTemp = document.querySelector('#element-template').content;
 
 
+
 const initialCards = [{
         name: 'Архыз',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -56,8 +57,9 @@ const initialCards = [{
 ];
 
 function CardCreate(itemtext, itemsrc) {
-    let cardElement = cardTemp.cloneNode(true);
-    let cardimgEl = cardElement.querySelector('.elements__image');
+
+    const cardElement = cardTemp.cloneNode(true);
+    const cardimgEl = cardElement.querySelector('.elements__image');
 
     cardElement.querySelector('.elements__title').textContent = itemtext;
     cardimgEl.setAttribute('alt', itemtext);
@@ -112,7 +114,7 @@ function formSubmitHandler(evt) {
     evt.preventDefault();
 
     ///смотрим что открыли
-    let popTitle = formElement.querySelector('.popup__header').textContent;
+    const popTitle = formElement.querySelector('.popup__header').textContent;
     if (popTitle === 'Редактировать профиль') {
         ///заполняем профиль
         nameTitle.textContent = nameInput.value;
