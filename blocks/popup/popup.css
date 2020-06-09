@@ -11,6 +11,10 @@
 @import url(./__image/popup__image.css);
 @import url(./__sign/popup__sign.css);
 @import url(./_hide/popup_hide.css);
+@import url(./__button/_inactive/button_inactive.css);
+@import url(./__span-error/popup__span-error.css);
+@import url(./__label-inp/popup__label-inp.css);
+@import url(./_input-error/popup_input-error.css);
 .popup {
     position: fixed;
     top: 0;

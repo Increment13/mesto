@@ -34,14 +34,23 @@
 
 
         <div id="popfrm" class="popup popup_closed">
-            <form class="popup__container">
+            <form class="popup__container" name="frmInput">
                 <h2 class="popup__header">Редактировать профиль</h2>
-                <input id="inpFr" type="text" class="popup__input">
-                <input id="inpSc" type="text" class="popup__input">
+                <label class='popup__label-inp'>
+                    <input id="inpFr" type="text" class="popup__input" required>
+                    <span class='popup__span-error' id='inpFr-error'></span>
+                </label>
+                <label class='popup__label-inp'>
+                    <input id="inpSc" type="text" class="popup__input" required>
+                    <span class='popup__span-error' id='inpSc-error'></span>
+            </label>
                 <button type="submit" class="popup__button">Сохранить</button>
 
+
             </form>
+
             <button class="popup__close" type="button"></button>
+
         </div>
         <div id="popimg" class="popup popup_closed">
             <div class="popup__container-image">
@@ -63,7 +72,10 @@
             </div>
         </article>
     </template>
-    <script src="script.js"></script>
+    <script src="script/validate.js"></script>
+    <script src="script/script.js"></script>
+
+
 </body>
 
 </html>

@@ -9,5 +9,5 @@
 
 .popup_hide {
     display: flex;
-    animation: hide 300ms linear;
+    animation: hide 400ms linear;
 }
