@@ -17,7 +17,7 @@
 .popup__button:active,
 .popup__button:focus {
     opacity: 0.8;
-    outline: none !important;
+    outline: none;
     cursor: pointer;
 }
 

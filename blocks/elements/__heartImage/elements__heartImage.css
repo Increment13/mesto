@@ -12,12 +12,11 @@
 .elements__heartImage:hover {
     cursor: pointer;
     transform: scale(1.2);
-    outline: none !important;
-    cursor: pointer;
+    outline: none;
 }
 
 .elements__heartImage:active,
 .elements__heartImage:focus {
-    outline: none !important;
+    outline: none;
     cursor: pointer;
 }

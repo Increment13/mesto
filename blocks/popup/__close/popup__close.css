@@ -13,7 +13,7 @@
 .popup__close:focus {
     opacity: 0.6;
     cursor: pointer;
-    outline: none !important;
+    outline: none;
 }
 
 @media screen and (max-width: 550px) {

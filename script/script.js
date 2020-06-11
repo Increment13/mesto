@@ -83,7 +83,7 @@ initialCards.forEach(function(item) {
     CardCreate(item.name, item.link);
 });
 /*открытие попапа*/
-function openPopup(popTitle, nameTitle, jobTitle) {
+function openPopup(popTitle) {
     formSub.reset();
 
     //удаляем активные ошибки
@@ -133,8 +133,8 @@ function openPopup(popTitle, nameTitle, jobTitle) {
 };
 
 //Для передачи параментров + использование одного попапа
-editButton.addEventListener('click', () => openPopup(popTitle1, nameTitle, jobTitle));
-addButton.addEventListener('click', () => openPopup(popTitle2, nameTitle, jobTitle));
+editButton.addEventListener('click', () => openPopup(popTitle1));
+addButton.addEventListener('click', () => openPopup(popTitle2));
 
 /*наполнение формы Имя/Професия  ------- сохранение формы*/
 function formSubmitHandler(evt) {
@@ -175,7 +175,7 @@ function addClassCl(tagElem) {
 /*закрытие Крестик*/
 closArray.forEach(function(item) {
     item.addEventListener('click', function(evt) {
-        tarOp = item.parentElement;
+        const tarOp = item.parentElement;
         addClassCl(tarOp);
     });
 });

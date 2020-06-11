@@ -10,8 +10,13 @@ const hideInputError = (formElement, inputElement, item) => {
     errorElement.textContent = '';
 };
 
-const toggleButtonState = (inputList, buttonElement, item) => {
+const hasInvalidInput = (inputList) => {
+    return inputList.some((inputElement) => {
+        return !inputElement.validity.valid;
+    });
+};
 
+const toggleButtonState = (inputList, buttonElement, item) => {
     if (hasInvalidInput(inputList)) {
         // сделай кнопку неактивной
         buttonElement.classList.add(item.inactiveButtonClass);
@@ -22,15 +27,6 @@ const toggleButtonState = (inputList, buttonElement, item) => {
         buttonElement.removeAttribute('disabled', 'disabled');
     }
 };
-
-
-
-const hasInvalidInput = (inputList) => {
-    return inputList.some((inputElement) => {
-        return !inputElement.validity.valid;
-    });
-};
-
 ///вызов ошибок
 const checkInputValidity = (formElement, inputElement, item) => {
     if (!inputElement.validity.valid) {
@@ -39,9 +35,6 @@ const checkInputValidity = (formElement, inputElement, item) => {
         hideInputError(formElement, inputElement, item);
     }
 };
-
-
-
 ///////////////////////////////////////
 const setEventListeners = (formElement, item) => {
 
@@ -57,13 +50,7 @@ const setEventListeners = (formElement, item) => {
         });
     });
 };
-////////////////////////////////////
-
-
-
-
-
-
+///////////////////////////////////////
 const enableValidation = (item) => {
     const formList = Array.from(document.querySelectorAll(item.formSelector));
     formList.forEach((formEl) => {

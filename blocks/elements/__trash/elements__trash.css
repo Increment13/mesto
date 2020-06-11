@@ -16,6 +16,6 @@
 .elements__trash:active,
 .elements__trash:focus {
     opacity: 0.6;
-    outline: none !important;
+    outline: none;
     cursor: pointer;
 }
