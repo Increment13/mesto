@@ -1,3 +1,6 @@
+import Card from './card.js';
+import FormValidator from './validate.js';
+
 const formElement = document.querySelector('.page');
 const formSub = document.forms.frmInput;
 const editButton = formElement.querySelector('.profile__editButton');
@@ -28,7 +31,6 @@ const closArray = Array.from(formElement.querySelectorAll('.popup__close'));
 const popupArray = Array.from(formElement.querySelectorAll('.popup'));
 const labelArray = Array.from(formElement.querySelectorAll('.popup__label-inp'));
 
-const cardTemp = document.querySelector('#element-template').content;
 
 const initialCards = [{
         name: 'Архыз',
@@ -56,45 +58,29 @@ const initialCards = [{
     }
 ];
 
-function CardCreate(itemtext, itemsrc) {
-    const cardElement = cardTemp.cloneNode(true);
-    const cardimgEl = cardElement.querySelector('.elements__image');
+///формируем блок елементс
+initialCards.forEach((item) => {
+    const card = new Card(item.name, item.link);
+    const cardElement = card.generateCard();
 
-    cardElement.querySelector('.elements__title').textContent = itemtext;
-    cardimgEl.setAttribute('alt', itemtext);
-    cardimgEl.setAttribute('src', itemsrc);
     cardContainer.prepend(cardElement);
+});
 
-    formElement.querySelector('.elements__heartImage').addEventListener('click', function(evt) {
-        evt.target.classList.toggle('elements__heartImage_active');
-    });
-    formElement.querySelector('.elements__trash').addEventListener('click', function(evt) {
-        evt.target.parentElement.parentElement.remove();
-    });
-    formElement.querySelector('.elements__image').addEventListener('click', function(evt) {
-        popupImage.setAttribute('src', evt.target.getAttribute("src"));
-        formElement.querySelector('.popup__sign').textContent = evt.target.getAttribute("alt");
-        formImage.classList.add('popup_opened-image');
-    });
+///валидация форм
+const Validation = (item) => {
+    const envalid = new FormValidator(item.formSelector, item.inputSelector, item.submitButtonSelector, item.inactiveButtonClass, item.inputErrorClass);
+    envalid.enableValidation();
 };
 
-///формируем блок елементс
-initialCards.forEach(function(item) {
-    CardCreate(item.name, item.link);
-});
 /*открытие попапа*/
 function openPopup(popTitle) {
     formSub.reset();
 
-    //удаляем активные ошибки
-    labelArray.forEach(function(item) {
-        hideInputError(formElement, item.querySelector('.popup__input'), {
-            formSelector: '.popup__container',
-            inputSelector: '.popup__input',
-            submitButtonSelector: '.popup__button',
-            inactiveButtonClass: 'button_inactive',
-            inputErrorClass: 'popup_input-error',
-        });
+    labelArray.forEach(function(inputElement) {
+
+        const errorElement = document.querySelector(`#${inputElement.querySelector('.popup__input').id}-error`);
+        inputElement.classList.remove('popup_input-error');
+        errorElement.textContent = '';
     });
 
     formTitle.textContent = popTitle;
@@ -122,14 +108,16 @@ function openPopup(popTitle) {
 
     form.classList.add('popup_opened');
     form.classList.remove('popup_closed');
+    /////////////////////////////////////////////////////enableValidation
 
-    enableValidation({
+    Validation({
         formSelector: '.popup__container',
         inputSelector: '.popup__input',
         submitButtonSelector: '.popup__button',
         inactiveButtonClass: 'button_inactive',
         inputErrorClass: 'popup_input-error',
     });
+
 };
 
 //Для передачи параментров + использование одного попапа
@@ -148,7 +136,9 @@ function formSubmitHandler(evt) {
         jobTitle.textContent = jobInput.value;
     } else {
         ///формируем карточку с фото
-        CardCreate(nameInput.value, jobInput.value);
+        const card = new Card(nameInput.value, jobInput.value);
+        const cardElement = card.generateCard();
+        cardContainer.prepend(cardElement);
     }
     form.classList.remove('popup_opened');
     form.classList.add('popup_hide');
@@ -200,8 +190,9 @@ function EscCl(evt) {
     }
 };
 document.addEventListener('keydown', EscCl);
+
 ///вызов валидации формы
-enableValidation({
+Validation({
     formSelector: '.popup__container',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
