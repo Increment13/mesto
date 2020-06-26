@@ -7,20 +7,20 @@ export default class FormValidator {
             this._inputSelector = inputSelector;
             this._inputErrorClass = inputErrorClass;
         }
-        ///отображение ошибки
+        //отображение ошибки
     _showInputError = (inputElement, errorMessage) => {
         const errorElement = document.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.add(this.inputErrorClass);
         errorElement.textContent = errorMessage;
     };
-    ///прячем ошибки
+    //прячем ошибки
     hideInputError = (inputElement) => {
         const errorElement = document.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.remove(this.inputErrorClass);
         errorElement.textContent = '';
     };
 
-    ///вызов ошибок
+    //вызов ошибок
     _checkInputValidity(inputElement) {
         if (!inputElement.validity.valid) {
             this._showInputError(inputElement, inputElement.validationMessage);
@@ -29,7 +29,7 @@ export default class FormValidator {
         }
     }
 
-    ///изменение кнопки
+    //изменение кнопки
     _toggleButtonState() {
         if (this._hasInvalidInput(this.inputList)) {
             // сделай кнопку неактивной
@@ -42,14 +42,14 @@ export default class FormValidator {
         }
     }
 
-    ///отображаем валидный или нет
+    //отображаем валидный или нет
     _hasInvalidInput = () => {
         return this.inputList.some((inputElement) => {
             return !inputElement.validity.valid;
         });
     }
 
-    ///////слушаем изменение формы
+    //слушаем изменение формы
     _setEventListeners(fieldSet) {
         this.inputList = Array.from(document.querySelectorAll(this._inputSelector));
         this._toggleButtonState();

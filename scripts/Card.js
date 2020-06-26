@@ -28,10 +28,10 @@ export default class Card {
         this._element.remove();
     }
 
-    _popOp() {
+    _popUp() {
         document.querySelector('.popup__image').src = this._element.querySelector('.elements__image').getAttribute("src");
         document.querySelector('.popup__sign').textContent = this._element.querySelector('.elements__image').getAttribute("alt");
-        document.querySelector('#popimg').classList.add('popup_opened-image');
+        document.querySelector('#popup-image').classList.add('popup_opened-image');
     }
 
     _setEventListeners() {
@@ -44,7 +44,7 @@ export default class Card {
         });
 
         this._element.querySelector('.elements__image').addEventListener('click', () => {
-            this._popOp();
+            this._popUp();
         });
     }
 }

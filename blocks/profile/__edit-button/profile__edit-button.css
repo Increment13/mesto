@@ -1,4 +1,4 @@
-.profile__editButton {
+.profile__edit-button {
     width: 24px;
     height: 24px;
     background-image: url(../../../images/pai.svg);
@@ -10,9 +10,9 @@
     transition: opacity 0.3s ease-in-out;
 }
 
-.profile__editButton:hover,
-.profile__editButton:active,
-.profile__editButton:focus {
+.profile__edit-button:hover,
+.profile__edit-button:active,
+.profile__edit-button:focus {
     opacity: 0.6;
     outline: none !important;
     cursor: pointer;

@@ -3,7 +3,7 @@
 @import url(./__profession/profile__profession.css);
 @import url(./__editPlace/profile__editPlace.css);
 @import url(./__avatar/profile__avatar.css);
-@import url(./__editButton/profile__editButton.css);
+@import url(./__edit-button/profile__edit-button.css);
 @import url(./__addButton/profile__addButton.css);
 @import url(./__editInfo/profile__editInfo.css);
 .profile {
