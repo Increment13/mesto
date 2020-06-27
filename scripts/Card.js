@@ -1,13 +1,13 @@
 export default class Card {
-    constructor(itemtext, itemsrc, cardTamplate) {
+    constructor(itemtext, itemsrc, cardTemplate) {
         this._itemtext = itemtext;
         this._itemsrc = itemsrc;
-        this._cardTamplate = cardTamplate;
+        this._cardTemplate = cardTemplate;
 
     }
 
     _getTemplate() {
-        const cardElement = this._cardTamplate.content.querySelector('.elements__element').cloneNode(true);
+        const cardElement = this._cardTemplate.content.querySelector('.elements__element').cloneNode(true);
         return cardElement;
     }
 
