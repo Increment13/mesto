@@ -1,11 +1,13 @@
 export default class Card {
-    constructor(itemtext, itemsrc) {
+    constructor(itemtext, itemsrc, cardTamplate) {
         this._itemtext = itemtext;
         this._itemsrc = itemsrc;
+        this._cardTamplate = cardTamplate;
+
     }
 
     _getTemplate() {
-        const cardElement = document.querySelector('#element-template').content.querySelector('.elements__element').cloneNode(true);
+        const cardElement = this._cardTamplate.content.querySelector('.elements__element').cloneNode(true);
         return cardElement;
     }
 
@@ -21,21 +23,21 @@ export default class Card {
     }
 
     _handlerHeartClick() {
-        this._element.querySelector('.elements__heartImage').classList.toggle('elements__heartImage_active');
+        this._element.querySelector('.elements__heart-image').classList.toggle('elements__heart-image_active');
     }
 
     _handlerTrashClick() {
         this._element.remove();
     }
 
-    _popUp() {
+    _popupOpen() {
         document.querySelector('.popup__image').src = this._element.querySelector('.elements__image').getAttribute("src");
         document.querySelector('.popup__sign').textContent = this._element.querySelector('.elements__image').getAttribute("alt");
         document.querySelector('#popup-image').classList.add('popup_opened-image');
     }
 
     _setEventListeners() {
-        this._element.querySelector('.elements__heartImage').addEventListener('click', () => {
+        this._element.querySelector('.elements__heart-image').addEventListener('click', () => {
             this._handlerHeartClick();
         });
 
@@ -44,7 +46,7 @@ export default class Card {
         });
 
         this._element.querySelector('.elements__image').addEventListener('click', () => {
-            this._popUp();
+            this._popupOpen();
         });
     }
 }

@@ -1,4 +1,4 @@
-.elements__heartImage {
+.elements__heart-image {
     background-image: url(../../../images/heart.svg);
     background-color: white;
     background-repeat: no-repeat;
@@ -9,14 +9,14 @@
     transition: transform 0.3s ease-out;
 }
 
-.elements__heartImage:hover {
+.elements__heart-image:hover {
     cursor: pointer;
     transform: scale(1.2);
     outline: none;
 }
 
-.elements__heartImage:active,
-.elements__heartImage:focus {
+.elements__heart-image:active,
+.elements__heart-image:focus {
     outline: none;
     cursor: pointer;
 }
