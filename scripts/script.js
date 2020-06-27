@@ -1,5 +1,5 @@
 import Card from './Card.js';
-import FormValidator from './Validate.js';
+import FormValidator from './FormValidator.js';
 import { initialCards } from './utils.js';
 
 const formElement = document.querySelector('.page');
@@ -99,7 +99,7 @@ function formSubmitHandler(evt) {
         jobTitle.textContent = jobInput.value;
     } else {
         //формируем карточку с фото
-        const card = new Card(nameInput.value, jobInput.value);
+        const card = new Card(nameInput.value, jobInput.value, cardTemplate);
         const cardElement = card.generateCard();
         cardContainer.prepend(cardElement);
     }
