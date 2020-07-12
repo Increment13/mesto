@@ -12,6 +12,6 @@
 
 .popup_opened {
     display: flex;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.9);
     animation: show 300ms linear;
 }

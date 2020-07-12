@@ -9,16 +9,16 @@ export default class FormValidator {
         }
         //отображение ошибки
     _showInputError = (inputElement, errorMessage) => {
-        const errorElement = document.querySelector(`#${inputElement.id}-error`);
-        inputElement.classList.add(this.inputErrorClass);
-        errorElement.textContent = errorMessage;
-    };
-    //прячем ошибки
+            const errorElement = document.querySelector(`#${inputElement.id}-error`);
+            inputElement.classList.add(this.inputErrorClass);
+            errorElement.textContent = errorMessage;
+        }
+        //прячем ошибки
     hideInputError = (inputElement) => {
         const errorElement = document.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.remove(this.inputErrorClass);
         errorElement.textContent = '';
-    };
+    }
 
     //вызов ошибок
     _checkInputValidity(inputElement) {
@@ -32,6 +32,7 @@ export default class FormValidator {
     //изменение кнопки
     _toggleButtonState() {
         if (this._hasInvalidInput(this.inputList)) {
+            console.log(1);
             // сделай кнопку неактивной
             document.querySelector(this._submitButtonSelector).classList.add(this._inactiveButtonClass);
             document.querySelector(this._submitButtonSelector).setAttribute('disabled', 'disabled');
@@ -63,6 +64,7 @@ export default class FormValidator {
     };
 
     enableValidation() {
+
         const formList = Array.from(document.querySelectorAll(this._formSelector));
         formList.forEach((formEl) => {
             formEl.addEventListener('submit', (evt) => {
