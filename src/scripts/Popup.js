@@ -5,17 +5,19 @@ export default class Popup {
         //открытие, не подходит для форм, разный клас открытия, нужно изменить на единый клас
     open() {
             this._popupSelector.classList.add('popup_opened');
-            this._popupSelector.classList.remove('popup_hide');
+            this._popupSelector.classList.remove('popup_closed');
         }
         //закрыте
     close() {
             this._popupSelector.classList.remove('popup_opened');
-            this._popupSelector.classList.add('popup_hide');
-            //прячем плавно
-            setTimeout(() => {
-                this._popupSelector.classList.remove('popup_hide');
-                this._popupSelector.classList.add('popup_closed');
-            }, 390);
+            this._popupSelector.classList.add('popup_closed');
+            /*     this._popupSelector.classList.add('popup_hide');
+                 //прячем плавно
+                 setTimeout(() => {
+                     this._popupSelector.classList.remove('popup_hide');
+                     this._popupSelector.classList.add('popup_closed');
+                 }, 390);
+             */
         }
         //слуашаем 
     setEventListeners() {

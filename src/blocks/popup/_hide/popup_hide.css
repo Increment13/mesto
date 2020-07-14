@@ -7,7 +7,7 @@
     }
 }
 
-.popup_hide {
+._popup_hide {
     display: flex;
     animation: hide 400ms linear;
 }

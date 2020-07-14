@@ -5,12 +5,11 @@ export default class PopupWithForm extends Popup {
             super(popupSelector);
             this._handleFormSubmit = handleFormSubmit;
             this._form = formName;
-            //инпаты формы вынесли
-            this._inputList = this._popupSelector
-                .querySelectorAll('.popup__input');
         }
         //поулчаем данные формы
     _getInputValues() {
+        this._inputList = this._popupSelector
+            .querySelectorAll('.popup__input');
         this._formValues = {};
         this._inputList.forEach((input) => {
             this._formValues[input.name] = input.value;
@@ -32,6 +31,8 @@ export default class PopupWithForm extends Popup {
         //открываем с предзаполненными данными !!! имена в UserInfo нужны для соответсвтия наполнения 
     open(item) {
         super.open();
+        this._inputList = this._popupSelector
+            .querySelectorAll('.popup__input');
         this._inputList.forEach((input) => {
             input.value = item[input.name];
         });

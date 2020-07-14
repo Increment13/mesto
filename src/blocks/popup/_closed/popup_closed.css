@@ -1,3 +1,13 @@
+@keyframes hide {
+    0% {
+        visibility: visible;
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
 .popup_closed {
-    display: none;
+    animation: hide 400ms linear;
 }
