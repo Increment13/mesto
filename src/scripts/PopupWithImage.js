@@ -5,6 +5,7 @@ export default class PopupWithImage extends Popup {
             super(popupSelector);
             this._popupImage = this._popupSelector.querySelector('.popup__image');
             this._popupImageSign = this._popupSelector.querySelector('.popup__sign');
+            this._documentEscListener = this._documentEscListener.bind(this);
         }
         //забираем данные для открытия
     open(item) {
@@ -19,14 +20,12 @@ export default class PopupWithImage extends Popup {
         super.close();
     }
 
-    _handleEscClose(evt) {
-        if (evt.key === 'Escape') {
-            this.close();
-        }
-    }
-
     setEventListeners() {
         super.setEventListeners();
+    }
+
+    _documentEscListener(evt) {
+        super._documentEscListener(evt);
     }
 
 }

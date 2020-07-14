@@ -5,7 +5,6 @@ import Section from '../scripts/Section.js';
 import UserInfo from '../scripts/UserInfo.js';
 import PopupWithImage from '../scripts/PopupWithImage.js';
 
-
 import './index.css';
 
 import { initialCards } from '../utils/utils.js';
@@ -43,7 +42,6 @@ cardList.renderItems();
 
 //текущие имя/работа
 const userinfo = new UserInfo(document.querySelector('.profile__name'), document.querySelector('.profile__profession'));
-
 //форма изменения имя/работа EDIT
 const editPopup = new PopupWithForm('popup-formedit', {
         handleFormSubmit: (data) => {

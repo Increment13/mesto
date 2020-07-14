@@ -5,6 +5,7 @@ export default class PopupWithForm extends Popup {
             super(popupSelector);
             this._handleFormSubmit = handleFormSubmit;
             this._form = formName;
+            this._documentEscListener = this._documentEscListener.bind(this);
         }
         //поулчаем данные формы
     _getInputValues() {
@@ -35,6 +36,11 @@ export default class PopupWithForm extends Popup {
 
     close() {
         super.close();
+        this._form.reset();
+    }
+
+    _documentEscListener(evt) {
+        super._documentEscListener(evt);
         this._form.reset();
     }
 
