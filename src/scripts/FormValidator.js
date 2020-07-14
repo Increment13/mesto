@@ -8,14 +8,21 @@ export default class FormValidator {
             this._inputSelector = inputSelector;
             this._inputErrorClass = inputErrorClass;
         }
-        //отображение ошибки
+        //скрыть ошибки
+    resetErrors(forms) {
+        Array.from(forms.querySelectorAll(this._inputSelector)).forEach((inputElement) => {
+            this._hideInputError(inputElement);
+        });
+    }
+
+    //отображение ошибки
     _showInputError = (inputElement, errorMessage) => {
             const errorElement = this._from.querySelector(`#${inputElement.id}-error`);
             inputElement.classList.add(this.inputErrorClass);
             errorElement.textContent = errorMessage;
         }
         //прячем ошибки
-    hideInputError = (inputElement) => {
+    _hideInputError = (inputElement) => {
         const errorElement = this._from.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.remove(this.inputErrorClass);
         errorElement.textContent = '';
@@ -26,7 +33,7 @@ export default class FormValidator {
         if (!inputElement.validity.valid) {
             this._showInputError(inputElement, inputElement.validationMessage);
         } else {
-            this.hideInputError(inputElement);
+            this._hideInputError(inputElement);
         }
     }
 

@@ -28,14 +28,9 @@ export default class PopupWithForm extends Popup {
                 this.close();
             })
         }
-        //открываем с предзаполненными данными !!! имена в UserInfo нужны для соответсвтия наполнения 
-    open(item) {
+        //открываем 
+    open() {
         super.open();
-        this._inputList = this._popupSelector
-            .querySelectorAll('.popup__input');
-        this._inputList.forEach((input) => {
-            input.value = item[input.name];
-        });
     }
 
     close() {
