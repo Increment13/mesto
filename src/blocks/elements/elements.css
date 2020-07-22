@@ -6,6 +6,8 @@
 @import url(./__heart-image/elements__heart-image.css);
 @import url(./_active/elements_heart-image_active.css);
 @import url(./__trash/elements__trash.css);
+@import url(./__likes-count/elements__likes-count.css);
+@import url(./__trash/__trash_hidden/elements__trash_hidden.css);
 .elements {
     max-width: 882px;
     min-width: 300px;

@@ -18,7 +18,6 @@ export default class Popup {
         //клик Esc
     _documentEscListener(evt) {
             if (evt.key === 'Escape') {
-                //console.log(1);
                 document.removeEventListener('keydown', this._documentEscListener);
                 this.close();
             }

@@ -13,6 +13,7 @@ export default class FormValidator {
         Array.from(forms.querySelectorAll(this._inputSelector)).forEach((inputElement) => {
             this._hideInputError(inputElement);
         });
+        //console.log('resetErrors'); форма чиститься при вводе
     }
 
     //отображение ошибки
