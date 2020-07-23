@@ -1,5 +1,5 @@
 export default class Card {
-    constructor(item, cardTemplate, { handleCardClick }, { apiTask }, { delPopup }) {
+    constructor(item, cardTemplate, { handleCardClick }, { setRequest }, { delPopup }) {
         this._itemtext = item.name;
         this._itemsrc = item.link;
         this._cardTemplate = document.getElementById(cardTemplate);
@@ -8,7 +8,7 @@ export default class Card {
         this._imageId = item._id; //id карточки
         this._idUserCreater = item.owner._id; //id пользователя создашего карточку 
         this._userId = document.querySelector('.profile__name').id; //мой ID 
-        this._apiTask = apiTask;
+        this._setRequest = setRequest;
         this._delPopup = delPopup;
     }
 
@@ -31,7 +31,7 @@ export default class Card {
         ///проверка на добавленную картинку 
         if (this._userId === this._idUserCreater || this._idUserCreater === '') {
             this._element.querySelector('.elements__trash').classList.remove('elements__trash_hidden');
-        };
+        }
 
         ///смотрим новая ли карточка
         if (this._likes.length > 0) {
@@ -50,10 +50,10 @@ export default class Card {
     //кнопка сердешко
     _handlerHeartClick() {
         if (this._element.querySelector('.elements__heart-image').classList.contains('elements__heart-image_active')) {
-            this._apiTask({ id: `/likes/${this._imageId}`, method: 'DELETE' });
+            this._setRequest({ id: `/likes/${this._imageId}`, method: 'DELETE' });
             this._element.querySelector('.elements__likes-count').textContent = Number(this._element.querySelector('.elements__likes-count').textContent) - 1;
         } else {
-            this._apiTask({ id: `/likes/${this._imageId}`, method: 'PUT' });
+            this._setRequest({ id: `/likes/${this._imageId}`, method: 'PUT' });
             this._element.querySelector('.elements__likes-count').textContent = Number(this._element.querySelector('.elements__likes-count').textContent) + 1;;
         }
         this._element.querySelector('.elements__heart-image').classList.toggle('elements__heart-image_active');

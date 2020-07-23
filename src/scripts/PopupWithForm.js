@@ -1,14 +1,13 @@
 import Popup from './Popup.js';
 
 export default class PopupWithForm extends Popup {
-    constructor(popupSelector, { handleFormSubmit }, formName, { api }, apiaddcard) {
+    constructor(popupSelector, { handleFormSubmit }, formName, { setRequest }) {
         super(popupSelector);
         this._handleFormSubmit = handleFormSubmit;
         this._form = formName;
         this._documentEscListener = this._documentEscListener.bind(this);
-        this._api = api;
+        this._setRequest = setRequest;
         this._listenersTrash = this._listenersTrash.bind(this);
-        this._apiaddcard = apiaddcard;
     }
 
     //поулчаем данные формы
@@ -22,27 +21,18 @@ export default class PopupWithForm extends Popup {
         return this._formValues;
     }
 
-    ///для поста
-    _apiRun(data) {
-            this._apiaddcard.postTask(data)
+    ///слушаем 
+    setEventListeners() {
+        super.setEventListeners();
+        this._popupSelector.addEventListener('submit', (evt) => {
+            evt.preventDefault();
+
+            this._setRequest(this._getInputValues())
                 .then((value) => {
                     this._handleFormSubmit(value);
                 })
-        }
-        ///слушаем 
-    setEventListeners() {
-        super.setEventListeners();
-        //слушаем сабмит, забираем данные -> ресетим -> закрываем форму
-        this._popupSelector.addEventListener('submit', (evt) => {
-            evt.preventDefault();
-            if (!this._api) {
-                this._apiRun(this._getInputValues());
-            } else {
-                this._api(this._getInputValues());
-                this._handleFormSubmit(this._getInputValues());
-            }
-            this._form.reset();
-            this.close();
+                .then(this._form.reset())
+
         })
     }
 
@@ -50,11 +40,9 @@ export default class PopupWithForm extends Popup {
         evt.preventDefault();
 
         this.delElement = document.getElementById(this._idCard).parentElement.parentElement;
-        this._api({ id: `/${this._idCard}`, method: 'DELETE' });
-
+        this._setRequest({ id: `/${this._idCard}`, method: 'DELETE' });
         this.delElement.remove();
         this.delElement = null;
-        this.close();
 
         document.removeEventListener('submit', this._listenersTrash);
     }
@@ -66,11 +54,6 @@ export default class PopupWithForm extends Popup {
         this._popupSelector.addEventListener('submit', this._listenersTrash);
     }
 
-    //открываем 
-    open() {
-        super.open();
-    }
-
     close() {
         super.close();
         this._form.reset();
@@ -78,7 +61,6 @@ export default class PopupWithForm extends Popup {
 
     _documentEscListener(evt) {
         super._documentEscListener(evt);
-        // this._form.reset();//в 8 ревью пропущено
     }
 
 }

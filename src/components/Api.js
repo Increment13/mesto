@@ -16,15 +16,15 @@ export default class Api {
         return Promise.reject(err.message)
     }
 
-    getTasks() {
-        return fetch(this.url, { headers: this.headers })
+    getRequest(link) {
+        return fetch(`${this.url}${link}`, { headers: this.headers })
             .then(this._handleResponse)
             .catch(this._handleResponseError)
     }
 
-    updateTask(data) {
+    updateTask(data, link) {
         return fetch(
-                `${this.url}${data.id}`, {
+                `${this.url}${link}${data.id}`, {
                     headers: this.headers,
                     method: data.method,
                 }
@@ -34,7 +34,7 @@ export default class Api {
     }
 
     patchTask(data, link) {
-        fetch(`${this.url}${link}`, {
+        return fetch(`${this.url}${link}`, {
                 method: 'PATCH',
                 headers: this.headers,
                 body: JSON.stringify(data)
@@ -43,15 +43,13 @@ export default class Api {
             .catch(this._handleResponseError)
     }
 
-    postTask(data) {
-
-        return fetch(this.url, {
+    postTask(data, link) {
+        return fetch(`${this.url}${link}`, {
                 method: 'POST',
                 headers: this.headers,
                 body: JSON.stringify({
                     name: data.place,
                     link: data.link,
-
                 })
             })
             .then(this._handleResponse)
