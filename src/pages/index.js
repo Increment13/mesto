@@ -1,9 +1,9 @@
-import Card from '../scripts/Card.js';
-import FormValidator from '../scripts/FormValidator.js';
-import PopupWithForm from '../scripts/PopupWithForm.js';
-import Section from '../scripts/Section.js';
-import UserInfo from '../scripts/UserInfo.js';
-import PopupWithImage from '../scripts/PopupWithImage.js';
+import Card from '../components/Card.js';
+import FormValidator from '../components/FormValidator.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import Section from '../components/Section.js';
+import UserInfo from '../components/UserInfo.js';
+import PopupWithImage from '../components/PopupWithImage.js';
 import Api from '../components/Api.js';
 
 import './index.css';
@@ -48,16 +48,16 @@ const userinfo = new UserInfo(document.querySelector('.profile__name'), document
         return api.getRequest(linkUser)
     }
 });
-userinfo.apiUserInfo();
+userinfo.getUserInfo();
 
 //Форма удаления
 const delPopup = new PopupWithForm('popup-formdel', {}, formDel, {
     setRequest: (data) => {
-        return api.updateTask({
+        return api.updateRequest({
                 id: data.id,
                 method: 'DELETE'
             }, linkCard)
-            .then(delPopup.close())
+            .then(() => delPopup.close())
     }
 });
 
@@ -66,11 +66,11 @@ const cardList = new Section({
         renderer: (item) => { //перебираем картинки и передаем функцию
             const card = new Card(item, 'element-template', {
                 handleCardClick: () => {
-                    popupwithimage.open(item);
+                    popupWithImage.open(item);
                 },
             }, {
                 setRequest: (item) => {
-                    api.updateTask({
+                    api.updateRequest({
                         id: item.id,
                         method: item.method
                     }, linkCard);
@@ -91,7 +91,7 @@ api.getRequest(linkCard)
     .catch(err => console.log(err));
 
 //создаем экземпляр класса попапа картинки
-const popupwithimage = new PopupWithImage('popup-image');
+const popupWithImage = new PopupWithImage('popup-image');
 
 //форма изменения имя/о себе
 const editPopup = new PopupWithForm('popup-formedit', {
@@ -104,12 +104,12 @@ const editPopup = new PopupWithForm('popup-formedit', {
     },
     formEdit, {
         setRequest: (data) => {
-            return api.patchTask({
+            return api.patchRequest({
                     name: data.name,
                     about: data.position
                 }, linkUser)
                 .catch(err => console.log(err))
-                .finally(editPopup.close())
+                .finally(() => editPopup.close())
 
         },
     }, );
@@ -135,11 +135,11 @@ const avatarPopup = new PopupWithForm('popup-formavatar', {
 }, formAvatar, {
     setRequest: (data) => {
         //устанавливаем изменения
-        return api.patchTask({
+        return api.patchRequest({
                 avatar: data.avatar
             }, `${linkUser}/avatar`)
             .catch(err => console.log(err))
-            .finally(avatarPopup.close())
+            .finally(() => avatarPopup.close())
     },
 }, );
 avatarPopup.setEventListeners();
@@ -157,14 +157,14 @@ const addPopup = new PopupWithForm('popup-formadd', {
         const newcard = new Card(item,
             'element-template', {
                 handleCardClick: () => {
-                    popupwithimage.open({
+                    popupWithImage.open({
                         name: item.place,
                         link: item.link
                     });
                 },
             }, { ///Like
                 setRequest: (data) => {
-                    api.updateTask({
+                    api.updatetRequest({
                         id: data.id,
                         method: data.method
                     }, linkCard)
@@ -176,9 +176,9 @@ const addPopup = new PopupWithForm('popup-formadd', {
     },
 }, formAdd, {
     setRequest: (data) => {
-        return api.postTask(data, linkCard)
+        return api.postRequest(data, linkCard)
             .catch(err => console.log(err))
-            .finally(addPopup.close())
+            .finally(() => addPopup.close())
     }
 }, );
 addPopup.setEventListeners();

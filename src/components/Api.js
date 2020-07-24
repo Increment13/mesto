@@ -22,7 +22,7 @@ export default class Api {
             .catch(this._handleResponseError)
     }
 
-    updateTask(data, link) {
+    updateRequest(data, link) {
         return fetch(
                 `${this.url}${link}${data.id}`, {
                     headers: this.headers,
@@ -33,7 +33,7 @@ export default class Api {
             .catch(this._handleResponseError)
     }
 
-    patchTask(data, link) {
+    patchRequest(data, link) {
         return fetch(`${this.url}${link}`, {
                 method: 'PATCH',
                 headers: this.headers,
@@ -43,7 +43,7 @@ export default class Api {
             .catch(this._handleResponseError)
     }
 
-    postTask(data, link) {
+    postRequest(data, link) {
         return fetch(`${this.url}${link}`, {
                 method: 'POST',
                 headers: this.headers,

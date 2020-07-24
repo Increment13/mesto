@@ -31,9 +31,9 @@ export default class PopupWithForm extends Popup {
                 .then((value) => {
                     this._handleFormSubmit(value);
                 })
-                .then(this._form.reset())
-
         })
+
+        this._form.reset();
     }
 
     _listenersTrash(evt) {
