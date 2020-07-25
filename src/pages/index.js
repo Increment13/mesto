@@ -46,9 +46,10 @@ formvalidatorAdd.enableValidation();
 const userinfo = new UserInfo(document.querySelector('.profile__name'), document.querySelector('.profile__profession'), document.querySelector('.profile__avatar'), {
     setRequest: () => {
         return api.getRequest(linkUser)
+            .catch(err => console.log(err))
     }
 });
-userinfo.getUserInfo();
+userinfo.setUserInfo();
 
 //Форма удаления
 const delPopup = new PopupWithForm('popup-formdel', {}, formDel, {
@@ -95,11 +96,8 @@ const popupWithImage = new PopupWithImage('popup-image');
 
 //форма изменения имя/о себе
 const editPopup = new PopupWithForm('popup-formedit', {
-        handleFormSubmit: (data) => {
-            userinfo.setUserInfo({
-                newName: data.name,
-                newLink: data.about
-            });
+        handleFormSubmit: () => {
+            userinfo.setUserInfo();
         },
     },
     formEdit, {
@@ -162,13 +160,13 @@ const addPopup = new PopupWithForm('popup-formadd', {
                         link: item.link
                     });
                 },
-            }, { ///Like
-                setRequest: (data) => {
-                    api.updatetRequest({
-                        id: data.id,
-                        method: data.method
-                    }, linkCard)
-                },
+            }, {
+                setRequest: (item) => {
+                    api.updateRequest({
+                        id: item.id,
+                        method: item.method
+                    }, linkCard);
+                }
             }, { delPopup },
         );
         const cardElement = newcard.generateCard();

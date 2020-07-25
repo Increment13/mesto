@@ -8,14 +8,6 @@ export default class UserInfo {
 
     //текущие данные 
     getUserInfo() {
-        this._setRequest()
-            .then((data) => {
-                this._avatarUser.src = data.avatar;
-                this._nameTitle.textContent = data.name;
-                this._nameTitle.id = data._id;
-                this._jobTitle.textContent = data.about;
-            });
-
         return {
             name: this._nameTitle.textContent,
             position: this._jobTitle.textContent
@@ -23,9 +15,13 @@ export default class UserInfo {
     }
 
     //устанавливаем 
-    setUserInfo({ newName, newLink }) {
-        this._nameTitle.textContent = newName;
-        this._jobTitle.textContent = newLink;
+    setUserInfo() {
+        this._setRequest()
+            .then((data) => {
+                this._avatarUser.src = data.avatar;
+                this._nameTitle.textContent = data.name;
+                this._nameTitle.id = data._id;
+                this._jobTitle.textContent = data.about;
+            });
     }
-
 }
